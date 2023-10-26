@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Save Web Form Data to Spreadsheets - Contact Form</title>
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+ <py-script>
+
+def SubForm():
+    url = 'https://api.apispreadsheets.com/data/FvTWTUvYI7e8JiMX/'
+    data = dict($("#myForm").serializeArray())
+    response = requests.post(url, data=data)
+    if response.status_code == 200:
+        print("Form data Submitted :)")
+    else:
+        print("There was an error :(")
+ </py-script>
+</head>
+<body>
+  <form id="myForm">
+    <label>Name</label>
+    <br/>
+    <input name="Name" />
+    <br/>
+    <label>Date_Of_Birth</label>
+    <br/>
+    <input name="Date_Of_Birth" />
+    <br/>
+	<label>Mobile_Number</label>
+    <br/>
+    <input name="Mobile_Number" />
+    <br/>
+	<label>Blood_Group</label>
+    <br/>
+    <input name="Blood_Group" />
+    <br/>
+	<label>Email_Address</label>
+    <br/>
+    <input name="Email_Address" />
+    <br/>
+	<label>Organisation</label>
+    <br/>
+    <input name="Organisation" />
+    <br/>
+	<label>Current_City</label>
+    <br/>
+    <input name="Current_City" />
+    <br/>
+	<label>Reference</label>
+    <br/>
+    <input name="Reference" />
+    <br/>
+    <br/>
+  </form>
+  <button onclick="SubForm()">Submit</button>
+</body>
+</html>
